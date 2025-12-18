@@ -1,5 +1,5 @@
 @import "tailwindcss";
-
+@import "./fonts.css";
 :root {
   --background: #f2f2f2;
   --foreground: #171717;
@@ -7,7 +7,8 @@
   /* Maliko Brand Colors */
   --primary: #0e60c9;
   --secondary: #0e60c933;
-  --color-text: #404040;
+  --textcolor: #404040;
+  --font-yekanbakh: "YekanBakh", Arial, sans-serif;
 }
 
 @theme inline {
@@ -19,7 +20,7 @@
   --color-secondary: var(--secondary);
   --color-text: var(--color-text);
 
-  --font-sans: var(--font-geist-sans);
+  --font-sans: var(--font-yekanbakh);
   --font-mono: var(--font-geist-mono);
 }
 
@@ -33,7 +34,7 @@
 body {
   background: var(--background);
   color: var(--color-text);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-yekanbakh);
   direction: rtl;
   text-align: right;
 }
@@ -59,4 +60,11 @@ html {
 
 ::-webkit-scrollbar-thumb:hover {
   background: #0a4fa0;
+}
+
+.header-bg {
+  background-image: url("../public/images/header-bg.webp");
+  background-repeat: no-repeat;
+  background-position: top;
+  /* background-position: bottom; */
 }
