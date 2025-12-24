@@ -3,6 +3,7 @@
 import { useState } from "react";
 import Link from "next/link";
 import { ArrowDownToLine, Menu, X } from "lucide-react";
+import Image from "next/image";
 
 export default function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -18,17 +19,19 @@ export default function Header() {
   return (
     <header className="container mx-auto mt-4 rounded-lg lg:rounded-full bg-white/95 backdrop-blur-md shadow-sm">
       <nav className=" px-4 lg:px-5">
-        <div className="flex items-center justify-between py-4">
+        <div className="flex items-center justify-between py-2">
           <Link
             href="/"
-            className="flex items-center gap-3 hover:opacity-80 transition-opacity"
+            className="flex items-center hover:opacity-80 transition-opacity"
           >
-            <div className="w-10 h-10 lg:w-12 lg:h-12 bg-gradient-to-br from-[#0e60c9] to-[#0a4fa0] rounded-xl flex items-center justify-center shadow-lg">
-              <span className="text-white text-xl lg:text-2xl font-bold">
-                M
-              </span>
-            </div>
-            <span className="text-xl lg:text-2xl font-bold text-[#404040]">
+            <Image
+              src="/favicon.svg"
+              alt="لوگوی مالیکو"
+              width={48}
+              height={48}
+              className="w-10 h-10 lg:w-16 lg:h-16"
+            />
+            <span className="text-xl lg:text-2xl font-black text-[#404040]">
               مالیکو
             </span>
           </Link>
@@ -38,7 +41,7 @@ export default function Header() {
               <Link
                 key={link.name}
                 href={link.href}
-                className="text-[#404040] hover:text-[#0e60c9] transition-colors font-medium"
+                className="text-[#404040] hover:text-[#0e60c9] transition-colors font-medium text-lg"
               >
                 {link.name}
               </Link>
