@@ -2,6 +2,12 @@
 
 import { useEffect, useRef, useState } from "react";
 
+const persianDigits = ["۰", "۱", "۲", "۳", "۴", "۵", "۶", "۷", "۸", "۹"];
+
+const toPersianNumber = (num) => {
+  return num.toString().replace(/\d/g, (digit) => persianDigits[digit]);
+};
+
 export default function CountUp({
   end,
   duration = 2000,
@@ -46,7 +52,7 @@ export default function CountUp({
       const progress = Math.min((currentTime - startTime) / duration, 1);
 
       const easeOutQuad = progress * (2 - progress);
-      const currentCount = Math.floor(easeOutQuad * end);
+      const currentCount = easeOutQuad * end;
 
       setCount(currentCount);
 
@@ -66,11 +72,22 @@ export default function CountUp({
     };
   }, [isVisible, end, duration]);
 
-  const formattedCount = count.toLocaleString("fa-IR");
+  const formatNumber = (num) => {
+    if (typeof num !== "number" || isNaN(num)) return "۰";
+
+    let formatted;
+    if (num % 1 !== 0) {
+      formatted = num.toFixed(1);
+    } else {
+      formatted = Math.floor(num).toString();
+    }
+
+    return toPersianNumber(formatted);
+  };
 
   return (
     <span ref={ref} className={className}>
-      {formattedCount}
+      {formatNumber(count)}
       {suffix}
     </span>
   );

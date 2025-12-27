@@ -18,7 +18,7 @@
   /* Maliko Custom Colors */
   --color-primary: var(--primary);
   --color-secondary: var(--secondary);
-  --color-text: var(--color-text);
+  --color-text: var(--textcolor);
 
   --font-sans: var(--font-yekanbakh);
   --font-mono: var(--font-geist-mono);
