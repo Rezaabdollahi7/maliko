@@ -163,3 +163,7 @@ html {
   box-shadow: 0px 12px 0px 0px
     rgba(13.999999999999982, 96.00000000000009, 201.00000000000003, 0.2);
 }
+
+::-moz-list-bullet {
+  color: var(--primary);
+}
